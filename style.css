@@ -1,0 +1,231 @@
+@import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans&display=swap');
+
+:root {
+    --Gradient-color: linear-gradient(to right, hsl(273, 75%, 66%), hsl(240, 73%, 65%));
+
+    --clr-primary-600: hsl(238, 29%, 16%);
+    --clr-primary-500: hsl(14, 88%, 65%);
+
+    --clr-dividers-200: hsl(240, 5%, 91%);
+
+    --clr-neutral-400: hsl(237, 12%, 33%);
+    --clr-neutral-300: hsl(240, 6%, 50%);
+    --clr-neutral-100: hsl(0, 0%, 100%);
+
+    --ff-base: 'Kumbh Sans', sans-serif;
+
+    --fw-bold: 700;
+    --fw-regular: 400;
+}
+
+/*
+  CSS RESET
+*/
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+    display: block;
+    max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    overflow-wrap: break-word;
+}
+
+h1,
+h2,
+h3 {
+    line-height: 1;
+}
+
+ul,
+li {
+    list-style: none;
+}
+
+/***********
+   main Css
+************/
+body {
+    background-image: var(--Gradient-color);
+    background-size: cover;
+    font-family: var(--ff-base);
+    font-weight: var(--fw-regular);
+    font-size: 0.75rem;
+    color: var(--clr-neutral-300);
+    display: grid;
+}
+
+.img {
+    width: 95%;
+    position: relative;
+    z-index: 1;
+    top: 1%;
+    left: 50%;
+    transform: translate(-50%, -68%);
+    margin-bottom: -30%;
+}
+
+main {
+    padding: 10rem 2rem;
+    border-radius: 1rem;
+}
+
+.container {
+    display: grid;
+    padding: 1rem 1rem 2rem;
+    background-color: var(--clr-neutral-100);
+    background-image: url("images/bg-pattern-mobile.svg");
+    background-repeat: no-repeat;
+    background-size: 85%;
+    background-position: 50% 0%;
+    border-radius: 1rem;
+}
+
+.container__items {
+    display: grid;
+}
+
+.container__items h1 {
+    font-size: 2rem;
+    place-self: center;
+    margin-bottom: 2rem;
+    color: var(--clr-primary-600);
+}
+
+.container__items dt {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: var(--clr-neutral-400);
+}
+
+dt:hover {
+    cursor: pointer;
+    color: var(--clr-primary-500);
+}
+
+dt.active {
+    font-weight: var(--fw-bold);
+    color: var(--clr-primary-600);
+}
+
+.container__items dt::after {
+    content: url("images/icon-arrow-down.svg");
+    transition: ease-in 0.5s;
+}
+
+dt.active::after {
+    transform: rotate(180deg);
+    transition: ease-out 0.5s;
+}
+
+.container__items hr {
+    margin: 1rem 0;
+    border: 0.1px solid var(--clr-dividers-200);
+}
+
+.container__items dd {
+    display: none;
+    transition: ease-in 0.5s;
+}
+
+.container__items dd.active {
+    display: block;
+}
+
+.box-img {
+    display: none;
+}
+
+@media (min-width:47em) {
+    main {
+        padding: 10rem 1rem;
+    }
+
+    .container {
+        display: grid;
+        margin: 0 auto;
+        grid-template-columns: repeat(2, 1fr);
+        padding: 4rem;
+        background-color: var(--clr-neutral-100);
+        background-image: url("images/bg-pattern-desktop.svg");
+        background-repeat: no-repeat;
+        background-position: -5%  0%;
+        background-size: 50%;
+        border-radius: 1rem;
+        position: relative;
+        place-self: center;
+        max-width: 60%;
+    }
+
+    .container__items h1 {
+        place-self: start;
+        font-size: 2.5rem;
+    }
+    .img {
+        width: 50%;
+        position: absolute;
+        z-index: 1;
+        top: 50%;
+        left: 0%;
+        transform: translate(-10%, -50%);
+        margin-bottom: -30%;
+    }
+
+    .box-img {
+        width: 20%;
+        display: block;
+        z-index: 1;
+        top: 61%;
+        left: 0%;
+        transform: translate(-52%, -50%);
+        position: absolute;
+    }
+
+    .container__items dt {
+        font-size: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    .container__items dd {
+        font-size: 1rem;
+    }
+
+}
